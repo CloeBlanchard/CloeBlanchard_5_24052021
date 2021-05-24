@@ -1,0 +1,95 @@
+// Recupération de l'id dans l'url
+const get_url_id = window.location.search;
+
+// Récupération de l'id seul
+const get_url_params = new URLSearchParams(get_url_id);
+const get_id = get_url_params.get("id");
+
+// Selection de l'objet dans l'api
+let get_object = fetch(`http://localhost:3000/api/teddies/${get_id}`);
+
+// Fonction qui va récupéré les infos de l'api et les afficher
+get_object
+    .then(async (responseData) => {
+
+        const product = await responseData.json();
+
+        try {
+
+            const page_product = document.querySelector("#page_produit");
+        
+            // variable boule for pour les couleurs
+            const colors = product.colors
+            let choice_colors = ''
+            for (let color = 0; color < colors.length; color++) {
+                choice_colors += `<option value="${colors[color]}">${colors[color]}</option>`
+            }
+
+            // Affichage du produit sur le site
+            page_product.innerHTML = `<img class="img_teddy" src="${product.imageUrl}" alt="ourson en peluche">
+                                        <ul>
+                                            <li><p class="nom_produit">Nom de l'ours: ${product.name}</p></li>
+                                            <li><p class="description">Description de l'ours: ${product.description}</p></li>
+                                            <li><p class="prix">prix de l'ours: ${product.price / 100}</p></li>
+                                        </ul>
+                                        <form>
+                                            <label for="choix_utilisateur">Choisissez la couleur:</label>
+                                            <select name="choix_utilisateur" id="choix_utilisateur">
+                                            ${choice_colors}
+                                            </select>
+                                        </form>
+                                        <button id="btn_envoie" type="submit" name="btn_envoie">Ajouter au Panier</button>`;
+            
+            
+                //Gestion du panier
+                // Récupération de l'id du panier
+                    const get_id_select = document.querySelector("#choix_utilisateur");
+
+                // Bouton envoie au panier
+                    const submit_basket = document.querySelector("#btn_envoie");
+            
+                // Ecouter le bouton et envoyer le panier
+                    submit_basket.addEventListener("click", (event)=>{
+                        event.preventDefault();
+                        
+                        //Choix user dans variable
+                        const user_choice = get_id_select.value;
+                        console.log(user_choice);
+                    
+                        //Récupération des valeurs du form
+                        let choice_product = {
+                            name: product.name,
+                            id_product: product._id,
+                            choix_product: user_choice,
+                            prix: product.price / 100,
+                            image: product.imageUrl,
+                        }
+                            console.log(choice_product);
+
+
+                            // Gestion localstorage
+                            // Récupération des valeurs du form dans le localstorage
+                            // Vérification qu'il n'y ai pas de clé déjà mise dans le localstorage
+                                let product_register = JSON.parse(localStorage.getItem("product"));
+                            // Json.parse pour convertir le données Json en données js
+                            //if produit deja enregistrer dans localstorage
+                                if(product_register) {
+                                    
+                                    product_register.push(choice_product);
+                                    localStorage.setItem("product", JSON.stringify(product_register));
+                                }
+                            // else produit enregistrer dans localstorage
+                                else{
+                                    product_register = [];
+                                    product_register.push(choice_product);
+                                    localStorage.setItem("product", JSON.stringify(product_register));
+                                }
+                    })
+        }
+        catch (err) {
+            console.log(err);
+        }
+    })
+    .catch((err) => {
+        console.log(err);
+});
