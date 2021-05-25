@@ -47,7 +47,7 @@ for (let item = 0; item < btn_suppr.length; item++) {
         event.preventDefault();
         console.log("event");
         console.log(event);
-
+        console.log(this);
         //Séléection de l'id produit qui sera supprimer
         const id_select_suppresion = product_register[item].id_product;
         console.log("id_select_suppresion");
@@ -142,26 +142,29 @@ submit_form.addEventListener("click", (event)=>{
     //Condition pour la validité du formulaire du prenom, nom, mail, adresse et ville
     if(/^[A-Z || a-z]{2,100}$/.test(value_first_name && value_last_name && value_address && value_city)){
         // console.log("True");
+
+        //Condition pour la validité du formulaire de l'e-mail
+        if(/^[a-z0-9._%+-]+@[a-z0-9._%+-]+\.[a-z]{2,50}$/.test(value_mail)){
+            // console.log("True");
+
+            //Condition pour la validité du formulaire du code postale
+            if(/^[0-9]{5}$/.test(value_postal_code)){
+                // console.log("True");
+            } else {
+                alert("Vérifier le champ du Code postal saisie");
+                // console.log("False");
+            };
+
+        } else {
+            alert("Vérifier le champ de l'E-mail saisie");
+            // console.log("False");
+        };
+
     } else {
         alert("Vérifier les champs ,du Prénom, du Nom, de l'Adresse et la Ville, saisies");
         // console.log("False");
     };
 
-    //Condition pour la validité du formulaire de l'e-mail
-    if(/^[a-z0-9._%+-]+@[a-z0-9._%+-]+\.[a-z]{2,50}$/.test(value_mail)){
-        // console.log("True");
-    } else {
-        alert("Vérifier le champ de l'E-mail saisie");
-        // console.log("False");
-    };
-    
-    //Condition pour la validité du formulaire du code postale
-    if(/^[0-9]{5}$/.test(value_postal_code)){
-        // console.log("True");
-    } else {
-        alert("Vérifier le champ du Code postal saisie");
-        // console.log("False");
-    };
 
     //Condition pour autorisé le formulaire dans le localstorage
     if (value_first_name && value_last_name && value_address && value_city && value_mail && value_postal_code){
@@ -173,10 +176,4 @@ submit_form.addEventListener("click", (event)=>{
     } else {
         // console.log("False");
     };
-
-    //Mettre valeur form et produit du panier en objet pour envoyer vers serveur
-    const submit_to_server = {
-        product_register,
-        get_values_form,
-    }
 })
