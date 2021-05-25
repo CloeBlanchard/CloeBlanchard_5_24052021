@@ -7,7 +7,7 @@ const page_basket = document.querySelector("#page_panier");
 // console.log(page_basket);
 
 // If panier vide alors afficher rien
-if(product_register === null){
+if(product_register === null || product_register == 0){
     const empty_basket = `<p>Vous n'avez pas d'article dans le panier</p>`;
     page_basket.innerHTML = empty_basket;
 }
@@ -26,34 +26,62 @@ else{
     }
     if(basket === product_register.length){
         page_basket.innerHTML = full_basket;
+
     };
     
 };
 
-//---------------------------EN ATTENTE-------------------------------------
+
 //Gestion supprimer produit
 //Récupération de la class "btn_suppr"
-let suppr_product = document.querySelector(".btn_suppr");
-// console.log("btn_suppr");
-// console.log(suppr_product);
+const btn_suppr = document.querySelectorAll(".btn_suppr");
+console.log("btn_suppr");
+console.log(btn_suppr);
 
 // supprimer un article du panier
+for (let item = 0; item < btn_suppr.length; item++) {
+    console.log("item");
+    console.log(item);
 
-suppr_product.addEventListener("click", (e) => {
-    e.preventDefault();
-    // console.log(e);
-    // console.log("event.id");
-    // console.log(e.target.dataset.id);
-    for(let item = 0; item < localStorage.length; item++){
-        if(product_register) {
-            // item.splice(0, 1);
-        };
-        localStorage.removeItem("product", JSON.stringify(product_register));
-        console.log(localStorage.product);
-    }
-    // localStorage.removeItem("product", JSON.stringify(suppr_product));
-    // window.location.reload();
-})
+    btn_suppr[item].addEventListener("click", (event) => {
+        event.preventDefault();
+        console.log("event");
+        console.log(event);
+
+        //Séléection de l'id produit qui sera supprimer
+        const id_select_suppresion = product_register[item].id_product;
+        console.log("id_select_suppresion");
+        console.log(id_select_suppresion);
+
+        //Méthode filter qui supprime l'élément cliquer
+        product_register = product_register.filter(
+            (el) => el.id_product !== id_select_suppresion
+        );
+
+        //Renvoie du produit supprimer dans le local storage et transformation en JSON
+        localStorage.setItem("product", JSON.stringify(product_register));
+        alert("Produit supprimer du panier");
+        window.location.reload();
+    });
+
+}
+
+//---------------------------EN ATTENTE-------------------------------------
+// suppr_product.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     // console.log(e);
+//     // console.log("event.id");
+//     // console.log(e.target.dataset.id);
+//     for(let item = 0; item < localStorage.length; item++){
+//         if(product_register) {
+//             // item.splice(0, 1);
+//         };
+//         localStorage.removeItem("product", JSON.stringify(product_register));
+//         console.log(localStorage.product);
+//     }
+//     // localStorage.removeItem("product", JSON.stringify(suppr_product));
+//     // window.location.reload();
+// })
 
 //---------------------------EN ATTENTE-------------------------------------
 
