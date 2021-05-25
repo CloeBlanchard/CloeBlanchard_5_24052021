@@ -53,6 +53,7 @@ get_object
                         event.preventDefault();
                         
                         //Choix user dans variable
+                        alert("Produit ajouté au panier");
                         const user_choice = get_id_select.value;
                         console.log(user_choice);
                     
