@@ -26,7 +26,7 @@ else{
     }
     if(basket === product_register.length){
         page_basket.innerHTML = full_basket;
-
+        
     };
     
 };
@@ -47,8 +47,8 @@ for (let item = 0; item < btn_suppr.length; item++) {
         event.preventDefault();
         console.log("event");
         console.log(event);
-        console.log(this);
-        //Séléection de l'id produit qui sera supprimer
+
+        //Séléction de l'id produit qui sera supprimer
         const id_select_suppresion = product_register[item].id_product;
         console.log("id_select_suppresion");
         console.log(id_select_suppresion);
@@ -91,11 +91,10 @@ const display_form = `<h2>Remplissez les champs ci-dessous et valider la command
 
                             <button id="envoyer_formulaire" type="submit" name="envoyer_formulaire">Envoyer la commande</button>
                         </form>`;
-get_id_form.insertAdjacentHTML("afterend", display_form)
+get_id_form.insertAdjacentHTML("afterend", display_form);
 
 //Récuperation du btn envoyer formulaire
 const submit_form = document.querySelector("#envoyer_formulaire");
-// console.log(submit_form);
 
 //Ecoute de l'event click
 submit_form.addEventListener("click", (event)=>{
@@ -121,47 +120,64 @@ submit_form.addEventListener("click", (event)=>{
     
     //Condition pour la validité du formulaire du prenom, nom, mail, adresse et ville
     if(/^[A-Z || a-z]{2,100}$/.test(value_first_name && value_last_name && value_address && value_city)){
-        // console.log("True");
 
         //Condition pour la validité du formulaire de l'e-mail
         if(/^[a-z0-9._%+-]+@[a-z0-9._%+-]+\.[a-z]{2,50}$/.test(value_mail)){
-            // console.log("True");
 
             //Condition pour la validité du formulaire du code postale
             if(/^[0-9]{5}$/.test(value_postal_code)){
-                // console.log("True");
+
             } else {
                 alert("Vérifier le champ du Code postal saisie");
-                // console.log("False");
             };
 
         } else {
             alert("Vérifier le champ de l'E-mail saisie");
-            // console.log("False");
         };
 
     } else {
         alert("Vérifier les champs ,du Prénom, du Nom, de l'Adresse et la Ville, saisies");
-        // console.log("False");
     };
 
 
     //Condition pour autorisé le formulaire dans le localstorage
     if (value_first_name && value_last_name && value_address && value_city && value_mail && value_postal_code){
+
         //Mettre l'objet get_values_form dans localstorage
         localStorage.setItem("valuesForm", JSON.stringify(get_values_form));
-        // console.log("localStorage");
-        // console.log(localStorage);
 
     } else {
-        // console.log("False");
     };
 
-    //Mettre valeur form et produit du panier en objet pour envoyer vers localstorage
-    const submit_to_server = {
+    //Mettre en objet les données du panier et du formulaire
+    const submit_command = {
         product_register,
         get_values_form,
-    }
+    };
+    console.log("submit_command");
+    console.log(submit_command);
 
-    //Envoi de l'objet "submit_to_server" vers le localstorage
+    //Méthode POST pour envoyer au serveur
+    const post_url_api = fetch("http://localhost:3000/api/teddies/order");
+    fetch(post_url_api, {
+        method: "POST",
+        body: JSON.stringify(submit_command),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+    console.log("post_url_api");
+    console.log(post_url_api);
+    
+    post_url_api.then(async (response) => {
+        try {
+
+            const value_command = await response.json();
+            console.log("value_command");
+            console.log(value_command);
+        } catch (error) {
+            console.log("error");
+            console.log(error);
+        }
+    });
 })
