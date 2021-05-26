@@ -66,26 +66,6 @@ for (let item = 0; item < btn_suppr.length; item++) {
 
 }
 
-//---------------------------EN ATTENTE-------------------------------------
-// suppr_product.addEventListener("click", (e) => {
-//     e.preventDefault();
-//     // console.log(e);
-//     // console.log("event.id");
-//     // console.log(e.target.dataset.id);
-//     for(let item = 0; item < localStorage.length; item++){
-//         if(product_register) {
-//             // item.splice(0, 1);
-//         };
-//         localStorage.removeItem("product", JSON.stringify(product_register));
-//         console.log(localStorage.product);
-//     }
-//     // localStorage.removeItem("product", JSON.stringify(suppr_product));
-//     // window.location.reload();
-// })
-
-//---------------------------EN ATTENTE-------------------------------------
-
-
 // Formulaire de commande
 //Récupération de l'id du positionnement
 const get_id_form = document.querySelector("#formulaire_commande");
@@ -176,4 +156,12 @@ submit_form.addEventListener("click", (event)=>{
     } else {
         // console.log("False");
     };
+
+    //Mettre valeur form et produit du panier en objet pour envoyer vers localstorage
+    const submit_to_server = {
+        product_register,
+        get_values_form,
+    }
+
+    //Envoi de l'objet "submit_to_server" vers le localstorage
 })
