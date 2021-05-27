@@ -154,30 +154,51 @@ submit_form.addEventListener("click", (event)=>{
         product_register,
         get_values_form,
     };
-    console.log("submit_command");
-    console.log(submit_command);
 
-    //Méthode POST pour envoyer au serveur
-    const post_url_api = fetch("http://localhost:3000/api/teddies/order");
-    fetch(post_url_api, {
+    localStorage.setItem("Envoie de la commande", JSON.stringify(submit_command));
+
+    //Méthode POST pour envoyer la requête
+    const post_url_api = "http://localhost:3000/api/teddies/order";
+    fetch(post_url_api, {mode: 'cors'}, {
         method: "POST",
-        body: JSON.stringify(submit_command),
         headers: {
             "Content-Type": "application/json",
         },
+        body: JSON.stringify(submit_command)
+    }).then (response => {
+        localStorage.setItem("Envoie de la commande", JSON.stringify(response.submit_command));
+            console.log("submit_command");
+            console.log(submit_command);
+            
+            // Suppression du panier une fois la commande envoyé
+            // localStorage.removeItem("product");
+            // window.location.href("./confirmation.html");
     });
     console.log("post_url_api");
     console.log(post_url_api);
-    
-    post_url_api.then(async (response) => {
-        try {
+//     const post_url_api = "http://localhost:3000/api/teddies/order";
+//     fetch(post_url_api, {
+//         method: "POST",
+//         body: JSON.stringify(submit_command),
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//     });
+//     console.log("post_url_api");
+//     console.log(post_url_api);
 
-            const value_command = await response.json();
-            console.log("value_command");
-            console.log(value_command);
-        } catch (error) {
-            console.log("error");
-            console.log(error);
-        }
-    });
+    
+
+//     // fetch(post_url_api
+//         .then(async (response) => {
+//             try {
+
+//                 const value_command = await response.json();
+//                 console.log("value_command");
+//                 console.log(value_command);
+//             } catch (error) {
+//                 console.log("error");
+//                 console.log(error);
+//             }
+//         });
 })
