@@ -13,6 +13,7 @@
             <ul class="liste">
                 <li><a href="./index.html">Acceuil</a></li>
                 <li><a href="./panier.html">Panier</a></li>
+                <li><a href="./confirmation.html">Confirmation de la commande</a></li>
             </ul>   
         </nav>
     </header>
@@ -27,8 +28,31 @@
             <p>Montant total du panier : </p>
         </div>
     </section>
-    <section id="formulaire_commande"></section>
+    <section id="formulaire_commande">
+        <h2>Remplissez les champs ci-dessous et valider la commande</h2>
+        <form>
+            <label for="prenom">Prénom : </label>
+            <input type="text" name="prenom" id="prenom_commande" class="formulaire_input" required>
 
-<script src="./panier.js"></script>
+            <label for="nom">Nom : </label>
+            <input type="text" name="nom" id="nom_commande" class="formulaire_input" required>
+
+            <label for="mail">Mail : </label>
+            <input type="text" name="mail" id="mail_commande" class="formulaire_input" required>
+
+            <label for="adresse">Adresse de livraison : </label>
+            <input type="text" name="adresse" id="adresse_commande" class="formulaire_input" required></input>
+
+            <label for="ville">Ville : </label>
+            <input type="text" name="ville" id="ville_commande" class="formulaire_input" required>
+
+            <label for="codePost">Code postal : </label>
+            <input type="text" name="codePost" id="codePost_commande" class="formulaire_input" required>
+
+            <button id="envoyer_formulaire" type="submit" name="envoyer_formulaire">Envoyer la commande</button>
+        </form>
+    </section>
+
+<script src="./javascript/panier.js"></script>
 </body>
 </html>
