@@ -57,32 +57,6 @@ for (let item = 0; item < btn_suppr.length; item++) {
 }
 
 // Formulaire de commande
-//Récupération de l'id du positionnement
-const get_id_form = document.querySelector("#formulaire_commande");
-const display_form = `<h2>Remplissez les champs ci-dessous et valider la commande</h2>
-                        <form>
-                            <label for="prenom">Prénom : </label>
-                            <input type="text" name="prenom" id="prenom_commande" class="formulaire_input" required>
-
-                            <label for="nom">Nom : </label>
-                            <input type="text" name="nom" id="nom_commande" class="formulaire_input" required>
-
-                            <label for="mail">Mail : </label>
-                            <input type="text" name="mail" id="mail_commande" class="formulaire_input" required>
-
-                            <label for="adresse">Adresse de livraison : </label>
-                            <input type="text" name="adresse" id="adresse_commande" class="formulaire_input" required></input>
-
-                            <label for="ville">Ville : </label>
-                            <input type="text" name="ville" id="ville_commande" class="formulaire_input" required>
-
-                            <label for="codePost">Code postal : </label>
-                            <input type="text" name="codePost" id="codePost_commande" class="formulaire_input" required>
-
-                            <button id="envoyer_formulaire" type="submit" name="envoyer_formulaire">Envoyer la commande</button>
-                        </form>`;
-get_id_form.insertAdjacentHTML("afterend", display_form);
-
 //Récuperation du btn envoyer formulaire
 const submit_form = document.querySelector("#envoyer_formulaire");
 
@@ -91,7 +65,7 @@ submit_form.addEventListener("click", (event)=>{
     event.preventDefault;
 
     //Récupération des valeurs du formulaire
-    const Contacts = {
+    const contact = {
         firstName : document.querySelector("#prenom_commande").value,
         lastName : document.querySelector("#nom_commande").value,
         email : document.querySelector("#mail_commande").value,
@@ -101,73 +75,123 @@ submit_form.addEventListener("click", (event)=>{
     }
     
     //Objet des values du formulaire
-    const value_first_name = Contacts.firstName;
-    const value_last_name = Contacts.lastName;
-    const value_mail = Contacts.email;
-    const value_address = Contacts.address;
-    const value_city = Contacts.city;
-    const value_postal_code = Contacts.code_postale;
+    const value_first_name = contact.firstName;
+    const value_last_name = contact.lastName;
+    const value_mail = contact.email;
+    const value_address = contact.address;
+    const value_city = contact.city;
+    const value_postal_code = contact.code_postale;
     
-    //Condition pour la validité du formulaire du prenom, nom, mail, adresse et ville
-    if(/^[A-Z || a-z]{2,100}$/.test(value_first_name && value_last_name && value_address && value_city)){
+    //Variable de validation
+    const check_value_firstName = false;
+    const check_value_lastName = false;
+    const check_value_address = false;
+    const check_value_city = false;
+    const check_value_mail = false;
+    const check_value_postalCode = false;
 
-        //Condition pour la validité du formulaire de l'e-mail
-        if(/^[a-z0-9._%+-]+@[a-z0-9._%+-]+\.[a-z]{2,50}$/.test(value_mail)){
-
-            //Condition pour la validité du formulaire du code postale
-            if(/^[0-9]{5}$/.test(value_postal_code)){
-
-            } else {
-                alert("Vérifier le champ du Code postal saisie");
-            };
-
-        } else {
-            alert("Vérifier le champ de l'E-mail saisie");
-        };
-
+    //Condition pour la validité du formulaire
+    if (/^[A-Z || a-z]{2,100}$/.test(value_first_name)) {
+        const check_value_firstName = true;
+        console.log(check_value_firstName);
     } else {
-        alert("Vérifier les champs ,du Prénom, du Nom, de l'Adresse et la Ville, saisies");
+        alert("Vérifiez le champ Prénom");
     };
 
+    if (/^[A-Z || a-z]{2,100}$/.test(value_last_name)) {
+        const check_value_lastName = true;
+        console.log(check_value_lastName);
+    } else {
+        alert("Vérifiez le champ Nom");
+    };
+
+    if (/^[A-Z || a-z0-9]{2,100}$/.test(value_address)) {
+        const check_value_address = true;
+        console.log(check_value_address);
+    } else {
+        alert("Vérifiez le champ Adresse");
+    };
+
+    if (/^[A-Z || a-z]{2,100}$/.test( value_city)) {
+        const check_value_city = true;
+        console.log(check_value_city);
+    } else {
+        alert("Vérifiez le champ Ville");
+    };
+
+    if (/^[a-z0-9._%+-]+@[a-z0-9._%+-]+\.[a-z]{2,50}$/.test(value_mail)) {
+        const check_value_mail = true;
+        console.log(check_value_mail);
+    } else {
+        alert("Vérifiez le champ E-mail");
+    };
+
+    if (/^[0-9]{5}$/.test(value_postal_code)) {
+        const check_value_postalCode = true;
+        console.log(check_value_postalCode);
+    } else {
+        alert("Vérifiez le champ Code Postal");
+    };
 
     //Condition pour autorisé le formulaire dans le localstorage
     if (value_first_name && value_last_name && value_address && value_city && value_mail && value_postal_code){
-
         //Mettre l'objet get_values_form dans localstorage
-        localStorage.setItem("valuesForm", JSON.stringify(Contacts));
-
+        localStorage.setItem("valuesForm", JSON.stringify(contact));
     } else {
+        alert("Une erreur c'est produite");
     };
 
-// TEST DE LA REQUETES POST
-    //Mettre en objet les données du panier et du formulaire
-    const submit_command = {
-        products,
-        Contacts,
-    };
-    console.log(submit_command);
+
+    // //Mettre en objet les données du panier et du formulaire
+    // const submit_command = {
+    //     produit : products,
+    //     contact : contact,
+    // };
+    // console.log(submit_command);
+
+    // // Test 2 de le requete
+    // const api_order = "http://localhost:3000/api/teddies/order";
+
+    // let requete = new XMLHttpRequest();
+    // requete.open("POST", api_order);
+    // requete.setRequestHeader("Content-Type", "application/json");
+    // requete.responseType = "json";
+    // requete.send();
+    // console.log(requete.open);
+
+    // requete.onload = function() {
+    //     if (requete.readyState === XMLHttpRequest.DONE){
+    //         if (requete.status === 200) {
+    //             let reponse = requete.reponse;
+    //             console.log(reponse);
+    //         } else {
+    //             alert("Un problème est")
+    //         }
+    //     } else {}
+    // }
+// Fin du test 2 de la requete
     // const commande_total = localStorage.setItem("Envoie de la commande", JSON.stringify(submit_command));
+// Test 1 de la requete
+    // // Envoie de l'objet "submit_command" à l'api
+    // fetch("http://localhost:3000/api/teddies/order", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type" : "application/json",
+    //     },
+    //     body: JSON.stringify(submit_command),
+    // }).then (async (response) => {
+    //     const value = await response.json();
+    //     try {
+    //         localStorage.setItem("Commande complète", JSON.stringify(value.submit_command));
+    //         localStorage.setItem("Id de commande", JSON.stringify(value.order_id));
+    //         console.log("c'est ok");
 
-    // Envoie de l'objet "submit_command" à l'api
-    fetch("http://localhost:3000/api/teddies/order", {
-        method: "POST",
-        headers: {
-            "Content-Type" : "application/json",
-        },
-        body: JSON.stringify(submit_command),
-    }).then (async (response) => {
-        const value = await response.json();
-        try {
-            localStorage.setItem("Commande complète", JSON.stringify(value.submit_command));
-            localStorage.setItem("Id de commande", JSON.stringify(value.order_id));
-            console.log("c'est ok");
-            
-        } catch (e) {
-            console.log("e");
-            console.log(e);
-        }
-    })
-    // FIN DE TEST DE LA REQUETE POST
+    //     } catch (e) {
+    //         console.log("e");
+    //         console.log(e);
+    //     }
+    // })
+// Test 2 de la requete
 
     // localStorage.setItem("Envoie de la commande", JSON.stringify(submit_command));
 
