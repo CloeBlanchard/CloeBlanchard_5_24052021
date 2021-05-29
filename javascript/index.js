@@ -17,12 +17,14 @@ get_api
                 
         // affichage des infos dans le html
                 const display_teddies = document.querySelector("#page_acceuil");
-                display_teddies.innerHTML += ` <a href="./produit.html?id=${teddies_id}">
-                                                <p>${teddies_name}</p>
-                                                <img class="img_teddy" src="${teddies_img}" alt="ourson en peluche">
-                                                <p>${teddies_description}</p>
-                                                <p>Voir plus d'informations</p>
-                                            </a>`;
+                display_teddies.innerHTML += `<a href="./produit.html?id=${teddies_id}">
+                                                <div class="carte_teddies">
+                                                    <img class="img_teddies" src="${teddies_img}" alt="ourson en peluche">
+                                                    <p class="name_teddies" >${teddies_name}</p>
+                                                    <p class="info_teddies">${teddies_description}</p>
+                                                    <p class="info2_teddies">Voir plus d'informations</p>
+                                                    </a>
+                                              </div>`;
             }
         }
         catch (err) {

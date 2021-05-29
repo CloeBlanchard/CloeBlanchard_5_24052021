@@ -71,19 +71,19 @@ get_object
                             // Gestion localstorage
                             // Récupération des valeurs du form dans le localstorage
                             // Vérification qu'il n'y ai pas de clé déjà mise dans le localstorage
-                                let product_register = JSON.parse(localStorage.getItem("product"));
+                                let products = JSON.parse(localStorage.getItem("product"));
                             // Json.parse pour convertir le données Json en données js
                             //if produit deja enregistrer dans localstorage
-                                if(product_register) {
+                                if(products) {
                                     
-                                    product_register.push(choice_product);
-                                    localStorage.setItem("product", JSON.stringify(product_register));
+                                    products.push(choice_product);
+                                    localStorage.setItem("product", JSON.stringify(products));
                                 }
                             // else produit enregistrer dans localstorage
                                 else{
-                                    product_register = [];
-                                    product_register.push(choice_product);
-                                    localStorage.setItem("product", JSON.stringify(product_register));
+                                    products = [];
+                                    products.push(choice_product);
+                                    localStorage.setItem("product", JSON.stringify(products));
                                 }
                     })
         }

@@ -93,42 +93,36 @@ submit_form.addEventListener("click", (event)=>{
     //Condition pour la validité du formulaire
     if (/^[A-Z || a-z]{2,100}$/.test(value_first_name)) {
         const check_value_firstName = true;
-        console.log(check_value_firstName);
     } else {
         alert("Vérifiez le champ Prénom");
     };
 
     if (/^[A-Z || a-z]{2,100}$/.test(value_last_name)) {
         const check_value_lastName = true;
-        console.log(check_value_lastName);
     } else {
         alert("Vérifiez le champ Nom");
     };
 
     if (/^[A-Z || a-z0-9]{2,100}$/.test(value_address)) {
         const check_value_address = true;
-        console.log(check_value_address);
     } else {
         alert("Vérifiez le champ Adresse");
     };
 
     if (/^[A-Z || a-z]{2,100}$/.test( value_city)) {
         const check_value_city = true;
-        console.log(check_value_city);
     } else {
         alert("Vérifiez le champ Ville");
     };
 
     if (/^[a-z0-9._%+-]+@[a-z0-9._%+-]+\.[a-z]{2,50}$/.test(value_mail)) {
         const check_value_mail = true;
-        console.log(check_value_mail);
     } else {
         alert("Vérifiez le champ E-mail");
     };
 
     if (/^[0-9]{5}$/.test(value_postal_code)) {
         const check_value_postalCode = true;
-        console.log(check_value_postalCode);
     } else {
         alert("Vérifiez le champ Code Postal");
     };
@@ -142,13 +136,28 @@ submit_form.addEventListener("click", (event)=>{
     };
 
 
-    // //Mettre en objet les données du panier et du formulaire
-    // const submit_command = {
-    //     produit : products,
-    //     contact : contact,
-    // };
-    // console.log(submit_command);
+    //Mettre en objet les données du panier et du formulaire et l'envoyer dans le local storage
+    const submit_command = {
+        produit : products,
+        contact : contact,
+    };
 
+    // Test 3 pour la requete post
+    fetch("http://localhost:3000/api/teddies/order", {mode: 'cors'}, {
+        method: "POST",
+        body: JSON.stringify(submit_command),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then (response => {
+        localStorage.setItem("Confirmation_Commande", JSON.stringify(submit_command));
+        console.log("response");
+        console.log(response);
+    }).catch((erreur) => {
+        console.log("erreur");
+        console.log(erreur);
+    })
+    // Fin du test 3 pour la requete post
     // // Test 2 de le requete
     // const api_order = "http://localhost:3000/api/teddies/order";
 
