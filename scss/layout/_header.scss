@@ -1,0 +1,33 @@
+header {
+    width: 100%;
+    display: block;
+}
+h1 {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+.nav_bar {
+    width: 100%;
+}
+.navigation {
+    font-size: 20px;
+    padding-bottom: 20px;
+    margin-top: 4%;
+    text-align: center;
+    vertical-align: middle;
+}
+li {
+    padding-bottom: 4%;
+    padding-top: 4%;
+}
+li a {
+    text-decoration: none;
+    color: #965fea;
+}
+li:hover {
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.404), -.6em 0 .6em rgba(0, 0, 0, 0.404);
+    border-radius: 20px;
+    font-weight: bold;
+    background-color: #f3e9f1;
+}

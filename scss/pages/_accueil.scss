@@ -1,0 +1,35 @@
+#page_acceuil {
+    background-color: #f3e9f1;
+    padding-bottom: 3%;
+    padding-top: 5%;
+}
+.carte_teddies {
+    border: solid 0px ;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.322), -0.4em 0 0.4em rgba(0, 0, 0, 0.322);
+    padding-bottom: 4%;
+    margin-bottom: 10%;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.name_teddies {
+    font-size: 25px;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    color: #965fea;
+    font-weight: bold;
+    padding-left: 5%;
+    text-align: center;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+.img_teddies {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 20px 20px 0px 0px;
+}
