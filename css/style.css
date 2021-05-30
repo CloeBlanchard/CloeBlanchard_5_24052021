@@ -1,6 +1,7 @@
 body {
   max-width: 1200px;
   height: 100vh;
+  font-size: 20px;
 }
 
 header {
@@ -19,24 +20,23 @@ h1, h3 {
 }
 
 .navigation {
-  font-size: 20px;
   padding-bottom: 20px;
   margin-top: 4%;
   text-align: center;
   vertical-align: middle;
 }
 
-li {
+.nav_hover {
   padding-bottom: 4%;
   padding-top: 4%;
 }
 
-li a {
+.nav_hover a {
   text-decoration: none;
   color: #965fea;
 }
 
-li:hover {
+.nav_hover:hover {
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.404), -0.6em 0 0.6em rgba(0, 0, 0, 0.404);
   border-radius: 20px;
   font-weight: bold;
@@ -105,6 +105,73 @@ a {
 
 .info2_teddies:hover {
   font-weight: bold;
+}
+
+#page_produit {
+  padding-bottom: 3%;
+  margin-bottom: 5%;
+}
+
+.img_produit {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  margin-bottom: 4%;
+}
+
+.nom_produit {
+  color: #965fea;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5%;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.13), -0.4em 0 0.4em rgba(0, 0, 0, 0.13);
+  padding: 2%;
+}
+
+.description_produit, .prix_produit {
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+.prix_produit {
+  font-weight: bold;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.13), -0.4em 0 0.4em rgba(0, 0, 0, 0.13);
+  color: #965fea;
+  padding: 2%;
+}
+
+#choix_produit {
+  margin-left: 20%;
+}
+
+#choix_utilisateur {
+  border: solid 2px #965fea;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 5%;
+  padding: 0.5%;
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.13), -0.4em 0 0.4em rgba(0, 0, 0, 0.13);
+}
+
+#choix_utilisateur:hover {
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.404), -0.6em 0 0.6em rgba(0, 0, 0, 0.404);
+}
+
+#btn_envoie {
+  border: solid 2px #965fea;
+  border-radius: 20px;
+  background-color: white;
+  margin-left: 32%;
+  font-size: 18px;
+  padding: 2%;
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.13), -0.4em 0 0.4em rgba(0, 0, 0, 0.13);
+}
+
+#btn_envoie:hover {
+  background-color: #f3e9f1;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.404), -0.6em 0 0.6em rgba(0, 0, 0, 0.404);
 }
 
 /*# sourceMappingURL=style.css.map */
