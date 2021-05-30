@@ -8,7 +8,7 @@ header {
   display: block;
 }
 
-h1 {
+h1, h3 {
   font-size: 30px;
   text-align: center;
   font-weight: bold;
@@ -47,13 +47,14 @@ li:hover {
   background-color: #f3e9f1;
   padding-bottom: 3%;
   padding-top: 5%;
+  margin-bottom: 5%;
 }
 
 .carte_teddies {
   border: solid 0px;
   background-color: white;
   border-radius: 20px;
-  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.322), -0.4em 0 0.4em rgba(0, 0, 0, 0.322);
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.1), -0.4em 0 0.4em rgba(0, 0, 0, 0.1);
   padding-bottom: 4%;
   margin-bottom: 10%;
   margin-top: 5%;
@@ -61,14 +62,8 @@ li:hover {
   margin-right: 5%;
 }
 
-.name_teddies {
-  font-size: 25px;
-  margin-top: 4%;
-  margin-bottom: 4%;
-  color: #965fea;
-  font-weight: bold;
-  padding-left: 5%;
-  text-align: center;
+.carte_teddies:hover {
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.247), -0.4em 0 0.4em rgba(0, 0, 0, 0.247);
 }
 
 a {
@@ -81,6 +76,35 @@ a {
   height: 250px;
   object-fit: cover;
   border-radius: 20px 20px 0px 0px;
+}
+
+.name_teddies {
+  font-size: 25px;
+  margin-top: 4%;
+  margin-bottom: 4%;
+  color: #965fea;
+  padding-left: 5%;
+  text-align: center;
+  padding: 2%;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.13), -0.4em 0 0.4em rgba(0, 0, 0, 0.13);
+}
+
+.info_teddies {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+.info2_teddies {
+  font-size: 20px;
+  text-align: center;
+  color: chocolate;
+  padding: 2%;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.13), -0.4em 0 0.4em rgba(0, 0, 0, 0.13);
+}
+
+.info2_teddies:hover {
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=style.css.map */
