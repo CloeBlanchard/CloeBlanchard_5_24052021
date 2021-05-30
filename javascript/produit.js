@@ -26,19 +26,21 @@ get_object
             }
 
             // Affichage du produit sur le site
-            page_product.innerHTML = `<img class="img_teddy" src="${product.imageUrl}" alt="ourson en peluche">
+            page_product.innerHTML =`<img class="img_produit" src="${product.imageUrl}" alt="ourson en peluche">
+                                    <div class="presentation_teddies">
                                         <ul>
-                                            <li><p class="nom_produit">Nom de l'ours: ${product.name}</p></li>
-                                            <li><p class="description">Description de l'ours: ${product.description}</p></li>
-                                            <li><p class="prix">prix de l'ours: ${product.price / 100}</p></li>
+                                            <li><p class="nom_produit">${product.name}</p></li>
+                                            <li><p class="description_produit">Description : ${product.description}</p></li>
+                                            <li><p class="prix_produit">${product.price / 100}€</p></li>
                                         </ul>
+                                    </div>
+                                    <div class="formulaire_contact">
                                         <form>
-                                            <label for="choix_utilisateur">Choisissez la couleur:</label>
-                                            <select name="choix_utilisateur" id="choix_utilisateur">
-                                            ${choice_colors}
-                                            </select>
+                                            <label id="choix_produit" for="choix_utilisateur">Choisissez la couleur :</label>
+                                            <select name="choix_utilisateur" id="choix_utilisateur">${choice_colors}</select>
                                         </form>
-                                        <button id="btn_envoie" type="submit" name="btn_envoie">Ajouter au Panier</button>`;
+                                        <button id="btn_envoie" type="submit" name="btn_envoie">Ajouter au Panier</button>
+                                    </div>`;
             
             
                 //Gestion du panier
