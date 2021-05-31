@@ -21,14 +21,9 @@ h1, h3 {
 
 .navigation {
   padding-bottom: 20px;
-  margin-top: 4%;
+  margin-top: 4px;
   text-align: center;
   vertical-align: middle;
-}
-
-.nav_hover {
-  padding-bottom: 4%;
-  padding-top: 4%;
 }
 
 .nav_hover a {
@@ -41,13 +36,16 @@ h1, h3 {
   border-radius: 20px;
   font-weight: bold;
   background-color: #f3e9f1;
+  padding: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 #page_acceuil {
   background-color: #f3e9f1;
-  padding-bottom: 3%;
-  padding-top: 5%;
-  margin-bottom: 5%;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-bottom: 40px;
 }
 
 .carte_teddies {
@@ -55,8 +53,6 @@ h1, h3 {
   background-color: white;
   border-radius: 20px;
   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.1), -0.4em 0 0.4em rgba(0, 0, 0, 0.1);
-  padding-bottom: 4%;
-  margin-bottom: 10%;
   margin-top: 5%;
   margin-left: 5%;
   margin-right: 5%;
@@ -80,26 +76,25 @@ a {
 
 .name_teddies {
   font-size: 25px;
-  margin-top: 4%;
-  margin-bottom: 4%;
+  margin-bottom: 15px;
   color: #965fea;
-  padding-left: 5%;
   text-align: center;
-  padding: 2%;
+  padding: 10px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.13), -0.4em 0 0.4em rgba(0, 0, 0, 0.13);
 }
 
 .info_teddies {
   font-size: 20px;
   text-align: center;
-  margin-bottom: 5%;
+  margin-bottom: 15px;
 }
 
 .info2_teddies {
   font-size: 20px;
   text-align: center;
   color: chocolate;
-  padding: 2%;
+  padding: 15px;
+  border-radius: 0px 0px 20px 20px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.13), -0.4em 0 0.4em rgba(0, 0, 0, 0.13);
 }
 

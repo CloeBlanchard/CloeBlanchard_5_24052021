@@ -1,3 +1,4 @@
+// Mobile first
 header {
     width: 100%;
     display: block;
@@ -12,13 +13,12 @@ h1, h3 {
 }
 .navigation {
     padding-bottom: 20px;
-    margin-top: 4%;
+    margin-top: 4px;
     text-align: center;
     vertical-align: middle;
 }
 .nav_hover {
-    padding-bottom: 4%;
-    padding-top: 4%;
+    
 }
 .nav_hover a {
     text-decoration: none;
@@ -29,4 +29,8 @@ h1, h3 {
     border-radius: 20px;
     font-weight: bold;
     background-color: #f3e9f1;
+    padding: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
+// Fin Mobile first
