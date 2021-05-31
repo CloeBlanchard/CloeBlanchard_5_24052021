@@ -20,37 +20,41 @@
         </nav>
     </header>
 
-    <section id="page_panier">
-        <div class="commande_produit">
-            <h2>Mon panier</h2>
-        </div>
-        <div class="recapitulatif_commande">
-            <p>Nom produit : </p>
-            <p>Montant du produit : </p>
-            <p>Montant total du panier : </p>
-        </div>
-    </section>
+    <section id="page_panier"></section>
+    
     <section id="formulaire_commande">
-        <h2>Remplissez les champs ci-dessous et valider la commande</h2>
+        <h2 id="titre_form">Remplissez les champs ci-dessous et valider la commande</h2>
         <form>
-            <label for="prenom">Prénom : </label>
-            <input type="text" name="prenom" id="prenom_commande" class="formulaire_input" required>
+            <div id="formulaire_prenom">
+                <label for="prenom">Prénom : </label>
+                <input type="text" name="prenom" id="prenom_commande" class="formulaire_input" required>
+            </div>
 
-            <label for="nom">Nom : </label>
-            <input type="text" name="nom" id="nom_commande" class="formulaire_input" required>
+            <div id="formulaire_nom">
+                <label for="nom">Nom : </label>
+                <input type="text" name="nom" id="nom_commande" class="formulaire_input" required>
+            </div>
 
-            <label for="mail">Mail : </label>
-            <input type="text" name="mail" id="mail_commande" class="formulaire_input" required>
+            <div id="formulaire_mail">
+                <label for="mail">Mail : </label>
+                <input type="text" name="mail" id="mail_commande" class="formulaire_input" required>
+            </div>
 
-            <label for="adresse">Adresse de livraison : </label>
-            <input type="text" name="adresse" id="adresse_commande" class="formulaire_input" required></input>
+            <div id="formulaire_adresse">
+                <label for="adresse">Adresse de livraison : </label>
+                <input type="text" name="adresse" id="adresse_commande" class="formulaire_input" required></input>
+            </div>
 
-            <label for="ville">Ville : </label>
-            <input type="text" name="ville" id="ville_commande" class="formulaire_input" required>
+            <div id="formulaire_ville">
+                <label for="ville">Ville : </label>
+                <input type="text" name="ville" id="ville_commande" class="formulaire_input" required>
+            </div>
 
-            <label for="codePost">Code postal : </label>
-            <input type="text" name="codePost" id="codePost_commande" class="formulaire_input" required>
-
+            <div id="formulaire_codePost">
+                <label for="codePost">Code postal : </label>
+                <input type="text" name="codePost" id="codePost_commande" class="formulaire_input" required>
+            </div>
+            
             <button id="envoyer_formulaire" type="submit" name="envoyer_formulaire">Envoyer la commande</button>
         </form>
     </section>
