@@ -11,13 +11,10 @@ let get_object = fetch(`http://localhost:3000/api/teddies/${get_id}`);
 // Fonction qui va récupéré les infos de l'api et les afficher
 get_object
     .then(async (responseData) => {
-
         const product = await responseData.json();
-
         try {
-
             const page_product = document.querySelector("#page_produit");
-        
+
             // variable boule for pour les couleurs
             const colors = product.colors
             let choice_colors = ''
@@ -38,11 +35,10 @@ get_object
                                         <form>
                                             <label id="choix_produit" for="choix_utilisateur">Choisissez la couleur :</label>
                                             <select name="choix_utilisateur" id="choix_utilisateur">${choice_colors}</select>
+                                            <button id="btn_envoie" type="submit" name="btn_envoie">Ajouter au Panier</button>
                                         </form>
-                                        <button id="btn_envoie" type="submit" name="btn_envoie">Ajouter au Panier</button>
                                     </div>`;
-            
-            
+
                 //Gestion du panier
                 // Récupération de l'id du panier
                     const get_id_select = document.querySelector("#choix_utilisateur");
@@ -57,7 +53,6 @@ get_object
                         //Choix user dans variable
                         alert("Produit ajouté au panier");
                         const user_choice = get_id_select.value;
-                        console.log(user_choice);
                     
                         //Récupération des valeurs du form
                         let choice_product = {
@@ -67,21 +62,18 @@ get_object
                             prix: product.price / 100,
                             image: product.imageUrl,
                         }
-                            console.log(choice_product);
-
 
                             // Gestion localstorage
                             // Récupération des valeurs du form dans le localstorage
                             // Vérification qu'il n'y ai pas de clé déjà mise dans le localstorage
                                 let products = JSON.parse(localStorage.getItem("product"));
-                            // Json.parse pour convertir le données Json en données js
-                            //if produit deja enregistrer dans localstorage
+
+                            //Produit déjà enregistré dans localstorage
                                 if(products) {
-                                    
                                     products.push(choice_product);
                                     localStorage.setItem("product", JSON.stringify(products));
                                 }
-                            // else produit enregistrer dans localstorage
+                            //enregistrer produit dans localstorage
                                 else{
                                     products = [];
                                     products.push(choice_product);
@@ -90,9 +82,7 @@ get_object
                     })
         }
         catch (err) {
-            console.log(err);
         }
     })
     .catch((err) => {
-        console.log(err);
 });
