@@ -1,8 +1,7 @@
-// Vérification qu'il n'y ai pas des clés mise dans le localstorage
-let products = JSON.parse(localStorage.getItem("product"));
-
 //Affichage du panier dans la page panier
 const page_basket = document.querySelector("#page_panier");
+
+let products = JSON.parse(localStorage.getItem("product"));
 
 // If panier vide alors afficher rien
 if(products === null || products == 0){
@@ -26,10 +25,8 @@ else{
 
     }
     if(basket === products.length){
-        page_basket.innerHTML = full_basket;
-        
+        page_basket.innerHTML = full_basket; 
     };
-    
 };
 
 
@@ -56,7 +53,6 @@ for (let item = 0; item < btn_suppr.length; item++) {
         alert("Produit supprimer du panier");
         window.location.reload();
     });
-
 }
 
 // Formulaire de commande
@@ -86,40 +82,40 @@ submit_form.addEventListener("click", (event)=>{
     // const value_postal_code = contact.code_postale;
     
     //Variable de validation
-    const check_value_firstName = false;
-    const check_value_lastName = false;
-    const check_value_address = false;
-    const check_value_city = false;
-    const check_value_mail = false;
+    let check_value_firstName = false;
+    let check_value_lastName = false;
+    let check_value_address = false;
+    let check_value_city = false;
+    let check_value_mail = false;
     // const check_value_postalCode = false;
 
     //Condition pour la validité du formulaire
     if (/^[A-Z || a-z]{2,100}$/.test(value_first_name)) {
-        const check_value_firstName = true;
+        check_value_firstName = true;
     } else {
         alert("Vérifiez le champ Prénom");
     };
 
     if (/^[A-Z || a-z]{2,100}$/.test(value_last_name)) {
-        const check_value_lastName = true;
+        check_value_lastName = true;
     } else {
         alert("Vérifiez le champ Nom");
     };
 
     if (/^[A-Z || a-z0-9]{2,100}$/.test(value_address)) {
-        const check_value_address = true;
+        check_value_address = true;
     } else {
         alert("Vérifiez le champ Adresse");
     };
 
     if (/^[A-Z || a-z]{2,100}$/.test( value_city)) {
-        const check_value_city = true;
+        check_value_city = true;
     } else {
         alert("Vérifiez le champ Ville");
     };
 
     if (/^[a-z0-9._%+-]+@[a-z0-9._%+-]+\.[a-z]{2,50}$/.test(value_mail)) {
-        const check_value_mail = true;
+        check_value_mail = true;
     } else {
         alert("Vérifiez le champ E-mail");
     };
@@ -132,16 +128,24 @@ submit_form.addEventListener("click", (event)=>{
     // };
 
     //Condition pour autorisé le formulaire dans le localstorage
-    if (value_first_name && value_last_name && value_address && value_city && value_mail){
+    if (check_value_firstName && check_value_lastName && check_value_address && check_value_city && check_value_mail){
+        
         //Mettre l'objet get_values_form dans localstorage
         localStorage.setItem("valuesForm", JSON.stringify(contact));
         
         //Mettre en objet les données du panier et du formulaire et l'envoyer dans le local storage
+        // Vérification qu'il n'y ai pas des clés mise dans le localstorage
+        // faire un boucle for
+        
+        // for (let item = 0; id_product.length; item++) {
+            let products = [];
+            let product = JSON.parse(localStorage.getItem("product"));
+            products.push(product[0].id_product);
+        // }
         const submit_command = {
-            products,
             contact,
+            products,
         };
-        console.log(JSON.stringify(submit_command));
 
         fetch("http://localhost:3000/api/teddies/order", {
         method: "POST",
@@ -151,110 +155,9 @@ submit_form.addEventListener("click", (event)=>{
         },
         }).then (response => {
             localStorage.setItem("Confirmation_Commande", JSON.stringify(submit_command));
-            console.log("response");
-            console.log(response);
         }).catch((erreur) => {
-            console.log("erreur");
-            console.log(erreur);
         })
     } else {
         alert("Une erreur c'est produite");
     };
-
-
-    
-
-    // Test 3 pour la requete post
-    
-    // Fin du test 3 pour la requete post
-    // // Test 2 de le requete
-    // const api_order = "http://localhost:3000/api/teddies/order";
-
-    // let requete = new XMLHttpRequest();
-    // requete.open("POST", api_order);
-    // requete.setRequestHeader("Content-Type", "application/json");
-    // requete.responseType = "json";
-    // requete.send();
-    // console.log(requete.open);
-
-    // requete.onload = function() {
-    //     if (requete.readyState === XMLHttpRequest.DONE){
-    //         if (requete.status === 200) {
-    //             let reponse = requete.reponse;
-    //             console.log(reponse);
-    //         } else {
-    //             alert("Un problème est")
-    //         }
-    //     } else {}
-    // }
-// Fin du test 2 de la requete
-    // const commande_total = localStorage.setItem("Envoie de la commande", JSON.stringify(submit_command));
-// Test 1 de la requete
-    // // Envoie de l'objet "submit_command" à l'api
-    // fetch("http://localhost:3000/api/teddies/order", {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type" : "application/json",
-    //     },
-    //     body: JSON.stringify(submit_command),
-    // }).then (async (response) => {
-    //     const value = await response.json();
-    //     try {
-    //         localStorage.setItem("Commande complète", JSON.stringify(value.submit_command));
-    //         localStorage.setItem("Id de commande", JSON.stringify(value.order_id));
-    //         console.log("c'est ok");
-
-    //     } catch (e) {
-    //         console.log("e");
-    //         console.log(e);
-    //     }
-    // })
-// Test 2 de la requete
-
-    // localStorage.setItem("Envoie de la commande", JSON.stringify(submit_command));
-
-    // //Méthode POST pour envoyer la requête
-    // const post_url_api = "http://localhost:3000/api/teddies/order";
-    // fetch(post_url_api, {mode: 'cors'}, {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(submit_command)
-    // }).then (response => {
-    //         localStorage.setItem("Envoie de la commande", JSON.stringify(response.submit_command));
-    //         console.log("response.submit_command");
-    //         console.log(response.submit_command);
-            
-            // Suppression du panier une fois la commande envoyé
-            // localStorage.removeItem("product");
-    //         // window.location.href("./confirmation.html");
-    // });
-    // console.log("post_url_api");
-    // console.log(post_url_api);
-//     const post_url_api = "http://localhost:3000/api/teddies/order";
-//     fetch(post_url_api, {
-//         method: "POST",
-//         body: JSON.stringify(submit_command),
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//     });
-//     console.log("post_url_api");
-//     console.log(post_url_api);
-
-    
-
-//     // fetch(post_url_api
-//         .then(async (response) => {
-//             try {
-
-//                 const value_command = await response.json();
-//                 console.log("value_command");
-//                 console.log(value_command);
-//             } catch (error) {
-//                 console.log("error");
-//                 console.log(error);
-//             }
-//         });
-})
+});
