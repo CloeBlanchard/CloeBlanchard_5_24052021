@@ -14,7 +14,10 @@ else{
     let full_basket = [];
     
     for(basket = 0; basket < products.length; basket++){
-        full_basket = full_basket + `<div class="recapitulatif_commande">
+        full_basket = full_basket + `<div class="commande_produit">
+                                    <h2>Mon panier</h2>
+                                    </div>
+                                    <div class="recapitulatif_commande">
                                     <p>Nom produit : <span class="info-produit">${products[basket].name}</span></p>
                                     <p>Couleur du produit : <span class="info-produit">${products[basket].choix_product}</span></p>
                                     <p>Montant du produit : <span class="info-produit">${products[basket].prix}€</span></p>
@@ -62,7 +65,7 @@ const submit_form = document.querySelector("#envoyer_formulaire");
 
 //Ecoute de l'event click
 submit_form.addEventListener("click", (event)=>{
-    event.preventDefault;
+    event.preventDefault();
 
     //Récupération des valeurs du formulaire
     const contact = {
@@ -71,7 +74,7 @@ submit_form.addEventListener("click", (event)=>{
         email : document.querySelector("#mail_commande").value,
         address : document.querySelector("#adresse_commande").value,
         city : document.querySelector("#ville_commande").value,
-        code_postale : document.querySelector("#codePost_commande").value,
+        // code_postale : document.querySelector("#codePost_commande").value,
     }
     
     //Objet des values du formulaire
@@ -80,7 +83,7 @@ submit_form.addEventListener("click", (event)=>{
     const value_mail = contact.email;
     const value_address = contact.address;
     const value_city = contact.city;
-    const value_postal_code = contact.code_postale;
+    // const value_postal_code = contact.code_postale;
     
     //Variable de validation
     const check_value_firstName = false;
@@ -88,7 +91,7 @@ submit_form.addEventListener("click", (event)=>{
     const check_value_address = false;
     const check_value_city = false;
     const check_value_mail = false;
-    const check_value_postalCode = false;
+    // const check_value_postalCode = false;
 
     //Condition pour la validité du formulaire
     if (/^[A-Z || a-z]{2,100}$/.test(value_first_name)) {
@@ -121,42 +124,48 @@ submit_form.addEventListener("click", (event)=>{
         alert("Vérifiez le champ E-mail");
     };
 
-    if (/^[0-9]{5}$/.test(value_postal_code)) {
-        const check_value_postalCode = true;
-    } else {
-        alert("Vérifiez le champ Code Postal");
-    };
+    // if (/^[0-9]{5}$/.test(value_postal_code)) {
+    //     const check_value_postalCode = true;
+    // } else {
+        // && value_postal_code
+    //     alert("Vérifiez le champ Code Postal");
+    // };
 
     //Condition pour autorisé le formulaire dans le localstorage
-    if (value_first_name && value_last_name && value_address && value_city && value_mail && value_postal_code){
+    if (value_first_name && value_last_name && value_address && value_city && value_mail){
         //Mettre l'objet get_values_form dans localstorage
         localStorage.setItem("valuesForm", JSON.stringify(contact));
-    } else {
-        alert("Une erreur c'est produite");
-    };
+        
+        //Mettre en objet les données du panier et du formulaire et l'envoyer dans le local storage
+        const submit_command = {
+            products,
+            contact,
+        };
+        console.log(JSON.stringify(submit_command));
 
-
-    //Mettre en objet les données du panier et du formulaire et l'envoyer dans le local storage
-    const submit_command = {
-        produit : products,
-        contact : contact,
-    };
-
-    // Test 3 pour la requete post
-    fetch("http://localhost:3000/api/teddies/order", {mode: 'cors'}, {
+        fetch("http://localhost:3000/api/teddies/order", {
         method: "POST",
         body: JSON.stringify(submit_command),
         headers: {
             "Content-Type": "application/json",
         },
-    }).then (response => {
-        localStorage.setItem("Confirmation_Commande", JSON.stringify(submit_command));
-        console.log("response");
-        console.log(response);
-    }).catch((erreur) => {
-        console.log("erreur");
-        console.log(erreur);
-    })
+        }).then (response => {
+            localStorage.setItem("Confirmation_Commande", JSON.stringify(submit_command));
+            console.log("response");
+            console.log(response);
+        }).catch((erreur) => {
+            console.log("erreur");
+            console.log(erreur);
+        })
+    } else {
+        alert("Une erreur c'est produite");
+    };
+
+
+    
+
+    // Test 3 pour la requete post
+    
     // Fin du test 3 pour la requete post
     // // Test 2 de le requete
     // const api_order = "http://localhost:3000/api/teddies/order";
