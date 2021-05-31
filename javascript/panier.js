@@ -70,7 +70,7 @@ submit_form.addEventListener("click", (event)=>{
         email : document.querySelector("#mail_commande").value,
         address : document.querySelector("#adresse_commande").value,
         city : document.querySelector("#ville_commande").value,
-        // code_postale : document.querySelector("#codePost_commande").value,
+        code_postale : document.querySelector("#codePost_commande").value,
     }
     
     //Objet des values du formulaire
@@ -79,7 +79,7 @@ submit_form.addEventListener("click", (event)=>{
     const value_mail = contact.email;
     const value_address = contact.address;
     const value_city = contact.city;
-    // const value_postal_code = contact.code_postale;
+    const value_postal_code = contact.code_postale;
     
     //Variable de validation
     let check_value_firstName = false;
@@ -87,7 +87,7 @@ submit_form.addEventListener("click", (event)=>{
     let check_value_address = false;
     let check_value_city = false;
     let check_value_mail = false;
-    // const check_value_postalCode = false;
+    let check_value_postalCode = false;
 
     //Condition pour la validité du formulaire
     if (/^[A-Z || a-z]{2,100}$/.test(value_first_name)) {
@@ -120,15 +120,15 @@ submit_form.addEventListener("click", (event)=>{
         alert("Vérifiez le champ E-mail");
     };
 
-    // if (/^[0-9]{5}$/.test(value_postal_code)) {
-    //     const check_value_postalCode = true;
-    // } else {
-        // && value_postal_code
-    //     alert("Vérifiez le champ Code Postal");
-    // };
+    if (/^[0-9]{5}$/.test(value_postal_code)) {
+        check_value_postalCode = true;
+    } else {
+        
+        alert("Vérifiez le champ Code Postal");
+    };
 
     //Condition pour autorisé le formulaire dans le localstorage
-    if (check_value_firstName && check_value_lastName && check_value_address && check_value_city && check_value_mail){
+    if (check_value_firstName && check_value_lastName && check_value_address && check_value_city && check_value_mail && value_postal_code){
         
         //Mettre l'objet get_values_form dans localstorage
         localStorage.setItem("valuesForm", JSON.stringify(contact));
