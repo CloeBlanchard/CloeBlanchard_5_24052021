@@ -20,7 +20,11 @@
         </nav>
     </header>
 
-    <section id="page_panier"></section>
+    <section id="page_panier">
+        <div class="commande_produit">
+            <h2>Mon panier</h2>
+        </div>
+    </section>
     
     <section id="formulaire_commande">
         <h2 id="titre_form">Remplissez les champs ci-dessous et valider la commande</h2>
@@ -48,6 +52,11 @@
             <div id="formulaire_ville">
                 <label for="ville">Ville : </label>
                 <input type="text" name="ville" id="ville_commande" class="formulaire_input" required>
+            </div>
+
+            <div id="formualaire_codePost">
+                <label for="code_postale">Code postal : </label>
+                <input type="text" name="code_postale" id="codePost_commande" class="formulaire_input" required>
             </div>
             
             <button id="envoyer_formulaire" type="submit" name="envoyer_formulaire">Envoyer la commande</button>

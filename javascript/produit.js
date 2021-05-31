@@ -34,7 +34,9 @@ get_object
                                     <div class="formulaire_contact">
                                         <form>
                                             <label id="choix_produit" for="choix_utilisateur">Choisissez la couleur :</label>
-                                            <select name="choix_utilisateur" id="choix_utilisateur">${choice_colors}</select>
+                                            <select name="choix_utilisateur" id="choix_utilisateur">
+                                                ${choice_colors}
+                                            </select>
                                             <button id="btn_envoie" type="submit" name="btn_envoie">Ajouter au Panier</button>
                                         </form>
                                     </div>`;

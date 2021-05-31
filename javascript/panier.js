@@ -13,10 +13,7 @@ else{
     let full_basket = [];
     
     for(basket = 0; basket < products.length; basket++){
-        full_basket = full_basket + `<div class="commande_produit">
-                                    <h2>Mon panier</h2>
-                                    </div>
-                                    <div class="recapitulatif_commande">
+        full_basket = full_basket + `<div class="recapitulatif_commande">
                                     <p>Nom produit : <span class="info-produit">${products[basket].name}</span></p>
                                     <p>Couleur du produit : <span class="info-produit">${products[basket].choix_product}</span></p>
                                     <p>Montant du produit : <span class="info-produit">${products[basket].prix}€</span></p>
@@ -25,7 +22,7 @@ else{
 
     }
     if(basket === products.length){
-        page_basket.innerHTML = full_basket; 
+        page_basket.innerHTML += full_basket; 
     };
 };
 
@@ -70,7 +67,7 @@ submit_form.addEventListener("click", (event)=>{
         email : document.querySelector("#mail_commande").value,
         address : document.querySelector("#adresse_commande").value,
         city : document.querySelector("#ville_commande").value,
-        code_postale : document.querySelector("#codePost_commande").value,
+        code_post : document.querySelector("#codePost_commande").value,
     }
     
     //Objet des values du formulaire
@@ -79,7 +76,7 @@ submit_form.addEventListener("click", (event)=>{
     const value_mail = contact.email;
     const value_address = contact.address;
     const value_city = contact.city;
-    const value_postal_code = contact.code_postale;
+    const value_postal_code = contact.code_post;
     
     //Variable de validation
     let check_value_firstName = false;
@@ -128,20 +125,19 @@ submit_form.addEventListener("click", (event)=>{
     };
 
     //Condition pour autorisé le formulaire dans le localstorage
-    if (check_value_firstName && check_value_lastName && check_value_address && check_value_city && check_value_mail && value_postal_code){
+    if (check_value_firstName && check_value_lastName && check_value_address && check_value_city && check_value_mail && check_value_postalCode){
         
         //Mettre l'objet get_values_form dans localstorage
         localStorage.setItem("valuesForm", JSON.stringify(contact));
         
         //Mettre en objet les données du panier et du formulaire et l'envoyer dans le local storage
-        // Vérification qu'il n'y ai pas des clés mise dans le localstorage
-        // faire un boucle for
-        
-        // for (let item = 0; id_product.length; item++) {
-            let products = [];
-            let product = JSON.parse(localStorage.getItem("product"));
-            products.push(product[0].id_product);
-        // }
+        //Faire un boucle for
+        let products = [];
+        let product = JSON.parse(localStorage.getItem("product"));
+        product.forEach( element => {
+            products.push(element.id_product);
+        });
+
         const submit_command = {
             contact,
             products,
