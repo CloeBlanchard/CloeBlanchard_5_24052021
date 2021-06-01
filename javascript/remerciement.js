@@ -22,11 +22,13 @@ if (price_total === null || price_total === 0) {
     const empty_thanks = `<p>Remplissez d'abord votre panier :)</p>`
     page_thanks.innerHTML = empty_thanks;
 } else {
-    const full_thanks = `<h2>Récapitulatif de votre commande</h2>
+    const full_thanks = `<h2 class="recap_commande">Récapitulatif de votre commande</h2>
     <div class="confirmation_commande">
         <p>Nous vous remercions pour l'achat de nos produit</p>
-        <p class="prix_totale_commande">Le montant de votre commande est de ${price_total}€</p>
-        <p>Votre commande à bien été prise en compte. Elle portera le N°${get_orderId}</p>
+        <p class="prix_totale_commande">Le montant de votre commande est de <span class="prix_commande">${price_total}€</span></p>
+        <p>Votre commande à bien été prise en compte.</p>
+        <p>Elle portera le N°</p>
+        <p class="numero_commande">${get_orderId}</p>
         <p>Au plaisir de vous revoir et nous esperons que votre achat vous conviendra.</p>
     </div>`;
     page_thanks.innerHTML = full_thanks;
@@ -34,10 +36,10 @@ if (price_total === null || price_total === 0) {
 
 
 // Supprimer localStorage sauf formulaire
-function suppression_key_localStorage(key) {
-    localStorage.removeItem(key);
-};
-suppression_key_localStorage("orderId");
-suppression_key_localStorage("product");
-suppression_key_localStorage("valuesForm");
-suppression_key_localStorage("Confirmation_Commande");
+// function suppression_key_localStorage(key) {
+//     localStorage.removeItem(key);
+// };
+// suppression_key_localStorage("orderId");
+// suppression_key_localStorage("product");
+// suppression_key_localStorage("valuesForm");
+// suppression_key_localStorage("Confirmation_Commande");
