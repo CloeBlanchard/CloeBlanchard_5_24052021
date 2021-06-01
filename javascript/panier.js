@@ -149,10 +149,32 @@ submit_form.addEventListener("click", (event)=>{
         headers: {
             "Content-Type": "application/json",
         },
-        }).then (response => {
-            localStorage.setItem("Confirmation_Commande", JSON.stringify(submit_command));
+        }).then (async(response) => {
+            try {
+                localStorage.setItem("Confirmation_Commande", JSON.stringify(submit_command));
+
+                const value_response = await response.json();
+
+                    // Récupération de orderId de la requète post
+                if(response.ok){
+
+                    // Mettre orderId dans localStorage
+                    localStorage.setItem("orderId", value_response.orderId)
+
+                    // Redirection page de confirmation de la commande
+                    window.location = "remerciement.html";
+
+                }
+
+            } catch(e){
+            };
+            
+            // Récupération de l'id de la réponse de la requete
         }).catch((erreur) => {
         })
+
+        
+
     } else {
         alert("Une erreur c'est produite");
     };
