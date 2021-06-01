@@ -148,6 +148,68 @@ a {
     height: 470px;
   }
 }
+@media screen and (min-width: 768px) {
+  #page_acceuil {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 40px;
+  }
+
+  .carte_teddies {
+    margin-left: 35px;
+    height: 450px;
+    width: 40%;
+  }
+
+  .img_teddies {
+    width: 100%;
+    height: 235px;
+  }
+}
+@media screen and (min-width: 874px) {
+  .carte_teddies {
+    margin-left: 30px;
+    height: 465px;
+  }
+
+  .img_teddies {
+    width: 100%;
+    height: 270px;
+  }
+}
+@media screen and (min-width: 988px) {
+  .carte_teddies {
+    margin-left: 30px;
+    height: 495px;
+  }
+
+  .img_teddies {
+    width: 100%;
+    height: 300px;
+  }
+}
+@media screen and (min-width: 1062px) {
+  .carte_teddies {
+    margin-left: 30px;
+    height: 527px;
+  }
+
+  .img_teddies {
+    width: 100%;
+    height: 330px;
+  }
+}
+@media screen and (min-width: 1201px) {
+  .carte_teddies {
+    margin-left: 60px;
+    height: 527px;
+  }
+
+  .img_teddies {
+    width: 100%;
+    height: 330px;
+  }
+}
 #page_produit {
   padding-bottom: 3%;
   margin-bottom: 5%;
