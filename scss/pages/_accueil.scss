@@ -5,7 +5,7 @@
     margin-bottom: 40px;
 }
 .carte_teddies {
-    border: solid 0px ;
+    border: solid 0px;
     background-color: white;
     border-radius: 20px;
     box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.1), -0.4em 0 0.4em rgba(0, 0, 0, 0.1);
@@ -50,7 +50,7 @@ a {
 .info2_teddies:hover {
     font-weight: bold;
 }
-
+// Début responsive mobile first
 @media screen and (min-width: 428px) {
     .img_teddies{
         width: 100%;

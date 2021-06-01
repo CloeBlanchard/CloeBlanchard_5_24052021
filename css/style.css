@@ -211,19 +211,26 @@ a {
   }
 }
 #page_produit {
-  padding-bottom: 3%;
+  padding-bottom: 5%;
+  padding-top: 5%;
   margin-bottom: 5%;
+  background-color: #f3e9f1;
+}
+
+.presentation_teddies {
+  border: solid 0px;
 }
 
 .img_produit {
   width: 100%;
-  height: 350px;
+  height: 320px;
   object-fit: cover;
   margin-bottom: 4%;
 }
 
 .nom_produit {
   color: #965fea;
+  background-color: white;
   font-size: 25px;
   font-weight: bold;
   text-align: center;
@@ -242,6 +249,7 @@ a {
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.13), -0.4em 0 0.4em rgba(0, 0, 0, 0.13);
   color: #965fea;
   padding: 2%;
+  background-color: white;
 }
 
 #choix_produit {
@@ -259,6 +267,7 @@ a {
 }
 
 #choix_utilisateur:hover {
+  font-weight: bold;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.404), -0.6em 0 0.6em rgba(0, 0, 0, 0.404);
 }
 
@@ -268,15 +277,124 @@ a {
   background-color: white;
   margin-left: 32%;
   font-size: 18px;
+  color: chocolate;
   padding: 2%;
   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.13), -0.4em 0 0.4em rgba(0, 0, 0, 0.13);
 }
 
 #btn_envoie:hover {
-  background-color: #f3e9f1;
+  color: chocolate;
+  font-weight: bold;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.404), -0.6em 0 0.6em rgba(0, 0, 0, 0.404);
 }
 
+@media screen and (min-width: 470px) {
+  .img_produit {
+    width: 100%;
+    height: 360px;
+  }
+}
+@media screen and (min-width: 528px) {
+  .img_produit {
+    width: 100%;
+    height: 400px;
+  }
+}
+@media screen and (min-width: 585px) {
+  .img_produit {
+    width: 100%;
+    height: 450px;
+  }
+}
+@media screen and (min-width: 657px) {
+  .img_produit {
+    width: 100%;
+    height: 500px;
+  }
+}
+@media screen and (min-width: 731px) {
+  .img_produit {
+    width: 100%;
+    height: 560px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .img_produit {
+    width: 70%;
+    height: 400px;
+    margin-left: 15%;
+  }
+
+  .nom_produit, .prix_produit {
+    padding: 1%;
+  }
+
+  #btn_envoie {
+    padding: 1%;
+    margin-left: 40%;
+  }
+
+  #choix_produit {
+    margin-left: 30%;
+  }
+}
+@media screen and (min-width: 835px) {
+  .img_produit {
+    width: 70%;
+    height: 450px;
+  }
+}
+@media screen and (min-width: 940px) {
+  .img_produit {
+    width: 40%;
+    height: 280px;
+    margin-left: 30%;
+  }
+
+  .nom_produit {
+    padding: 1%;
+    width: 38%;
+    margin-left: 30%;
+    border-radius: 20px;
+  }
+
+  .prix_produit {
+    width: 20%;
+    margin-left: 40%;
+    border-radius: 20px;
+    margin-bottom: 3%;
+  }
+
+  #btn_envoie {
+    padding: 1%;
+    margin-left: 43%;
+  }
+
+  #choix_produit {
+    margin-left: 35%;
+  }
+
+  #choix_utilisateur {
+    margin-bottom: 2%;
+  }
+
+  .description_produit {
+    width: 60%;
+    margin-left: 20%;
+    margin-bottom: 3%;
+  }
+}
+@media screen and (min-width: 1030px) {
+  .img_produit {
+    width: 40%;
+    height: 310px;
+    margin-left: 30%;
+  }
+
+  #choix_produit {
+    margin-left: 38%;
+  }
+}
 .recapitulatif_commande {
   padding-bottom: 5%;
   padding-top: 2%;
