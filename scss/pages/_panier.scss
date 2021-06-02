@@ -1,3 +1,14 @@
+#page_panier {
+    margin-top: 7%;
+}
+.background_commande {
+    background-color: #f3e9f1;
+    padding-top: 5%;
+    height: 210px;
+}
+#formulaire_commande {
+    margin-top: 50px;
+}
 .recapitulatif_commande {
     padding-bottom: 5%;
     padding-top: 2%;
@@ -5,17 +16,22 @@
     border-radius: 20px;
     margin-left: 3%;
     margin-right: 3%;
-    background-color: #f3e9f1;
+    background-color: white;
     text-align: center;
     box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.1), -0.4em 0 0.4em rgba(0, 0, 0, 0.1);
 }
-.commande_produit {
+#titre_form {
     text-align: center;
     margin-bottom: 5%;
-    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.1), -0.4em 0 0.4em rgba(0, 0, 0, 0.1);
     padding: 2%;
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.1), -0.4em 0 0.4em rgba(0, 0, 0, 0.1);    
     font-size: 25px;
     font-weight: bold;
+}
+.background_form {
+    padding-top: 2%;
+    padding-bottom: 5%;
+    background-color: #f3e9f1;
 }
 .info-produit {
     color: #965fea;
@@ -41,10 +57,9 @@ p {
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.671), -0.4em 0 0.4em rgba(0, 0, 0, 0.671);
     font-size: 18px;
     color: #965fea;
+    background-color: #f3e9f1;
 }
-
 #formulaire_commande {
-    background-color: #f6f6f6;
     padding-top: 5%;
     text-align: center;
     padding-bottom: 5%;
@@ -59,7 +74,9 @@ p {
     margin-top: 4%;
     margin-bottom: 4%;
     padding: 2%;
-    background-color: #f3e9f1;
+    background-color: white;
+    color: #965fea;
+    font-weight: bold;
 }
 input {
     border: solid 2px #965fea;
@@ -68,3 +85,119 @@ input {
 #formulaire_prenom:hover, #formulaire_nom:hover, #formulaire_mail:hover, #formulaire_adresse:hover, #formulaire_ville:hover, #formulaire_codePost:hover {
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.671), -0.4em 0 0.4em rgba(0, 0, 0, 0.671);
 }
+// Début du responsive mobile first
+@media screen and (min-width: 505px) {
+    .recapitulatif_commande, #formulaire_prenom, #formulaire_nom, #formulaire_mail, #formulaire_ville, #formulaire_codePost {
+        width: 60%;
+        margin-left: 20%;
+    }
+    #formulaire_adresse {
+        width: 80%;
+        margin-left: 8%;
+    }
+}
+@media screen and (min-width: 637px) {
+    #formulaire_prenom, #formulaire_nom, #formulaire_mail, #formulaire_ville {
+        width: 40%;
+        margin-left: 30%;
+    }
+    .recapitulatif_commande {
+        width: 40%;
+        margin-left: 30%;
+    }
+    #formulaire_codePost {
+        width: 50%;
+        margin-left: 24%;
+    }
+    #formulaire_adresse {
+        width: 60%;
+        margin-left: 20%;
+    }
+}
+// Fin du responsive mobile first
+// Début du responsive tablette (768X1200)
+@media screen and (min-width: 768px) {
+    .background_commande {
+        padding-top: 2%;
+    }
+    #formulaire_prenom, #formulaire_nom, #formulaire_mail, #formulaire_ville {
+        width: 32%;
+        margin-left: 33%;
+    }
+    #formulaire_adresse {
+        width: 50%;
+        margin-left: 23%;
+    }
+    #formulaire_codePost {
+        width: 40%;
+        margin-left: 28%;
+    }
+    .btn_suppr {
+        margin-top: 3%;
+    }
+    .recapitulatif_commande {
+        padding-bottom: 3.50%;
+    }
+    #envoyer_formulaire {
+        margin-top: 0;
+    }
+}
+@media screen and (min-width: 830px) {
+    .background_commande {
+        padding-bottom: 0.50%;
+    }
+    #formulaire_prenom {
+        margin-top: 0;
+    }
+    .background_form {
+        padding-bottom: 2%;
+    }
+}
+@media screen and (min-width: 864px) {
+    .recapitulatif_commande {
+        padding-bottom: 3%;
+    }
+    #formulaire_prenom, #formulaire_nom, #formulaire_mail, #formulaire_adresse, #formulaire_ville, #formulaire_codePost {
+        margin-bottom: 0;
+        margin-top: 3%;
+    }
+    #formulaire_codePost {
+        margin-bottom: 3%;
+    }
+}
+@media screen and (min-width: 940px) {
+    #titre_form{
+        font-size: 23px;
+        width: 70%;
+        border-radius: 30px;
+        margin-left: 15%;
+    }
+    .recapitulatif_commande {
+        width: 30%;
+        margin-left: 35%;
+    }
+    #formulaire_prenom, #formulaire_nom, #formulaire_mail, #formulaire_adresse, #formulaire_ville, #formulaire_codePost, .commande_produit {
+        font-size: 20px;
+    }
+    #formulaire_prenom, #formulaire_nom, #formulaire_mail, #formulaire_ville, #formulaire_codePost {
+        width: 30%;
+        margin-left: 35%;
+    }
+    #formulaire_prenom {
+        margin-top: 0;
+    }
+    #formulaire_adresse {
+        width: 40%;
+        margin-left: 30%;
+    }
+    #envoyer_formulaire {
+        width: 28%;
+        margin-left: 5%;
+    }
+}
+@media screen and (min-width: 1040px) {
+
+}
+// Fin du responsive tablette
+// Début du responsive Desktop
+// Fin du responsive Desktop

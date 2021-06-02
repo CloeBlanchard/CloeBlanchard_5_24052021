@@ -13,11 +13,13 @@ else{
     let full_basket = [];
     
     for(basket = 0; basket < products.length; basket++){
-        full_basket = full_basket + `<div class="recapitulatif_commande">
-                                    <p>Nom produit : <span class="info-produit">${products[basket].name}</span></p>
-                                    <p>Couleur du produit : <span class="info-produit">${products[basket].choix_product}</span></p>
-                                    <p>Montant du produit : <span class="info-produit">${products[basket].prix}€</span></p>
-                                    <button class="btn_suppr" type="button" data-id="${products[basket].id_product}" data-color="${products[basket].choix_product}" >Supprimer le produit</button>
+        full_basket = full_basket + `<div class="background_commande">
+                                        <div class="recapitulatif_commande">
+                                            <p>Nom produit : <span class="info-produit">${products[basket].name}</span></p>
+                                            <p>Couleur du produit : <span class="info-produit">${products[basket].choix_product}</span></p>
+                                            <p>Montant du produit : <span class="info-produit">${products[basket].prix}€</span></p>
+                                            <button class="btn_suppr" type="button" data-id="${products[basket].id_product}" data-color="${products[basket].choix_product}" >Supprimer le produit</button>
+                                        </div>
                                     </div>`;
 
     }
