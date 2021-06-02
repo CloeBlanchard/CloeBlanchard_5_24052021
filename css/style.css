@@ -389,10 +389,64 @@ a {
     width: 40%;
     height: 310px;
     margin-left: 30%;
+    margin-bottom: 0%;
+  }
+
+  .nom_produit {
+    margin-bottom: 0%;
+  }
+
+  .prix_produit {
+    margin-bottom: 2.5%;
   }
 
   #choix_produit {
     margin-left: 38%;
+  }
+
+  #choix_utilisateur {
+    margin-bottom: 0%;
+  }
+}
+@media screen and (min-width: 1140px) {
+  .img_produit {
+    width: 40%;
+    height: 350px;
+  }
+}
+@media screen and (min-width: 1201px) {
+  #page_produit {
+    padding-bottom: 1%;
+    margin-top: 3%;
+  }
+
+  .img_produit {
+    width: 30%;
+    height: 270px;
+    margin-left: 35%;
+  }
+
+  .nom_produit {
+    width: 15%;
+    margin-left: 42%;
+  }
+
+  .description_produit {
+    width: 35%;
+    margin-left: 33%;
+  }
+
+  .prix_produit {
+    width: 5%;
+    margin-left: 47%;
+  }
+
+  #choix_produit {
+    margin-left: 38%;
+  }
+
+  #choix_utilisateur {
+    margin-bottom: 2%;
   }
 }
 .recapitulatif_commande {
