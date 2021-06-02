@@ -646,6 +646,7 @@ input {
     font-size: 23px;
     width: 70%;
     border-radius: 30px;
+    margin-bottom: 2%;
     margin-left: 15%;
   }
 
@@ -661,6 +662,7 @@ input {
   #formulaire_prenom, #formulaire_nom, #formulaire_mail, #formulaire_ville, #formulaire_codePost {
     width: 30%;
     margin-left: 35%;
+    padding: 1%;
   }
 
   #formulaire_prenom {
@@ -670,11 +672,51 @@ input {
   #formulaire_adresse {
     width: 40%;
     margin-left: 30%;
+    padding: 1%;
   }
 
   #envoyer_formulaire {
-    width: 28%;
+    width: 25%;
     margin-left: 5%;
+    padding: 1.5%;
+  }
+}
+@media screen and (min-width: 1068px) {
+  .recapitulatif_commande {
+    padding-bottom: 2.5%;
+  }
+}
+@media screen and (min-width: 1120px) {
+  .recapitulatif_commande {
+    padding-bottom: 2%;
+  }
+}
+@media screen and (min-width: 1201px) {
+  #titre_form {
+    width: 30%;
+    margin-left: 33%;
+  }
+
+  .background_commande, .background_form {
+    width: 40%;
+    margin-left: 30%;
+    padding-top: 3%;
+  }
+
+  .recapitulatif_commande, #formulaire_prenom, #formulaire_nom, #formulaire_mail, #formulaire_adresse, #formulaire_ville, #formulaire_codePost {
+    width: 80%;
+    padding-bottom: 4%;
+    margin-left: 8%;
+  }
+
+  #formulaire_prenom, #formulaire_nom, #formulaire_mail, #formulaire_adresse, #formulaire_ville, #formulaire_codePost {
+    padding-bottom: 0;
+    padding: 2%;
+    font-size: 23px;
+  }
+
+  #envoyer_formulaire {
+    width: 40%;
   }
 }
 #page_remerciement {
