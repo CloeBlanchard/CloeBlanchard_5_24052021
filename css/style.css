@@ -724,18 +724,18 @@ input {
 }
 
 .recap_commande {
-  margin-bottom: 40px;
-  margin-top: 30px;
+  margin-bottom: 10%;
+  margin-top: 10%;
   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.377), -0.4em 0 0.4em rgba(0, 0, 0, 0.377);
-  padding: 10px;
+  padding: 2%;
   background-color: #f3e9f1;
 }
 
 .confirmation_commande {
-  padding-top: 30px;
-  padding-bottom: 10px;
-  margin-bottom: 50px;
-  background-color: #f6f6f6;
+  padding-top: 3%;
+  padding-bottom: 2%;
+  margin-bottom: 15%;
+  background-color: #f3e9f1;
 }
 
 .prix_commande {
@@ -745,7 +745,7 @@ input {
 
 .prix_totale_commande {
   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.377), -0.4em 0 0.4em rgba(0, 0, 0, 0.377);
-  padding: 10px;
+  padding: 2%;
   background-color: white;
 }
 
@@ -754,6 +754,72 @@ input {
   font-weight: bold;
   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.377), -0.4em 0 0.4em rgba(0, 0, 0, 0.377);
   padding: 10px;
+  background-color: white;
+}
+
+@media screen and (min-width: 600px) {
+  .recap_commande {
+    margin-bottom: 6%;
+  }
+
+  .confirmation_commande {
+    padding-top: 1%;
+  }
+}
+@media screen and (min-width: 900px) {
+  .recap_commande {
+    margin-bottom: 4%;
+    width: 30%;
+    border-radius: 30px;
+    margin-left: 33%;
+  }
+
+  .confirmation_commande {
+    padding-top: 0.5%;
+    margin-bottom: 8%;
+    height: 370px;
+  }
+
+  .prix_totale_commande, .numero_commande {
+    padding: 1%;
+    width: 40%;
+    margin-left: 28%;
+    border-radius: 30px;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .confirmation_commande {
+    height: 390px;
+  }
+}
+@media screen and (min-width: 1080px) {
+  .confirmation_commande {
+    height: 415px;
+  }
+}
+@media screen and (min-width: 1160px) {
+  .confirmation_commande {
+    height: 430px;
+  }
+}
+@media screen and (min-width: 1201px) {
+  .recap_commande {
+    width: 23%;
+    padding: 1.5%;
+    margin-left: 36.5%;
+  }
+
+  .confirmation_commande {
+    width: 50%;
+    height: 310px;
+    margin-left: 25%;
+  }
+
+  .prix_totale_commande, .numero_commande {
+    width: 60%;
+    padding: 1.5%;
+    margin-left: 18%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
