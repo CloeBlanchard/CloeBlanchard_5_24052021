@@ -48,10 +48,18 @@ h1, h3 {
   margin-bottom: 40px;
 }
 
+.titre_acceuil {
+  font-weight: bold;
+  background-color: white;
+  padding: 2%;
+  text-align: center;
+  font-size: 25px;
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.1), -0.4em 0 0.4em rgba(0, 0, 0, 0.1);
+}
+
 .carte_teddies {
   border: solid 0px;
   background-color: white;
-  border-radius: 20px;
   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.1), -0.4em 0 0.4em rgba(0, 0, 0, 0.1);
   margin-top: 5%;
   margin-left: 5%;
@@ -71,7 +79,6 @@ a {
   width: 100%;
   height: 260px;
   object-fit: cover;
-  border-radius: 20px 20px 0px 0px;
 }
 
 .name_teddies {
@@ -94,7 +101,6 @@ a {
   text-align: center;
   color: chocolate;
   padding: 15px;
-  border-radius: 0px 0px 20px 20px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.13), -0.4em 0 0.4em rgba(0, 0, 0, 0.13);
 }
 
@@ -164,6 +170,11 @@ a {
   .img_teddies {
     width: 100%;
     height: 235px;
+  }
+
+  .titre_acceuil {
+    height: 15%;
+    margin-left: 25%;
   }
 }
 @media screen and (min-width: 874px) {
