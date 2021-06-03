@@ -1,24 +1,24 @@
-// Mobile first
 header {
     width: 100%;
     display: block;
 }
-h1, h3 {
-    font-size: 30px;
-    text-align: center;
-    font-weight: bold;
+.logo {
+    margin-left: 25%;
+    margin-top: 3%;
+    margin-bottom: 10%;
+    height: 7vh;
+    width: 50%;
+    object-fit: cover;
 }
 .nav_bar {
     width: 100%;
+    margin-top: -10%;
 }
 .navigation {
     padding-bottom: 20px;
     margin-top: 4px;
     text-align: center;
     vertical-align: middle;
-}
-.nav_hover {
-    
 }
 .nav_hover a {
     text-decoration: none;
@@ -33,4 +33,70 @@ h1, h3 {
     margin-left: 50px;
     margin-right: 50px;
 }
-// Fin Mobile first
+// Début du responsive mobile first
+@media screen and (min-width: 488px) {
+    .logo {
+        margin-top: -0.20%;
+        height: 9vh;
+        width: 50%;
+        object-fit: cover;
+    }
+}
+@media screen and (min-width: 550px) {
+    .logo {
+        width: 45%;
+        margin-bottom: 10%;
+        object-fit: cover;
+    }
+}
+@media screen and (min-width: 600px) {
+    .logo {
+        margin-left: 30%;
+        width: 40%;
+        object-fit: cover;
+    }
+}
+@media screen and (min-width: 650px) {
+    .logo {
+        margin-top: 1%;
+    }
+}
+@media screen and (min-width: 700px) {
+    .logo {
+        margin-left: 33%;
+        width: 33%;
+    }
+}
+// Fin du repsonsive mobile first
+// Début responsive tablette
+@media screen and (min-width: 768px) {
+    .logo {
+        margin-left: 35%;
+        width: 27%;
+        object-fit: cover;
+    }
+}
+@media screen and (min-width: 900px) {
+    .logo {
+        margin-left: 36%;
+        width: 25%;
+        object-fit: cover;
+    }
+}
+@media screen and (min-width: 1000px) {
+    .logo {
+        margin-left: 40%;
+        width: 20%;
+        object-fit: cover;
+    }
+}
+// Fin du responsive tablette
+// Début du responsive desktop
+@media screen and (min-width: 1000px) {
+    .logo {
+        margin-left: 42%;
+        width: 15%;
+        object-fit: cover;
+    }
+}
+// Fin du responsive desktop

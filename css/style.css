@@ -9,14 +9,18 @@ header {
   display: block;
 }
 
-h1, h3 {
-  font-size: 30px;
-  text-align: center;
-  font-weight: bold;
+.logo {
+  margin-left: 25%;
+  margin-top: 3%;
+  margin-bottom: 10%;
+  height: 7vh;
+  width: 50%;
+  object-fit: cover;
 }
 
 .nav_bar {
   width: 100%;
+  margin-top: -10%;
 }
 
 .navigation {
@@ -41,6 +45,67 @@ h1, h3 {
   margin-right: 50px;
 }
 
+@media screen and (min-width: 488px) {
+  .logo {
+    margin-top: -0.2%;
+    height: 9vh;
+    width: 50%;
+    object-fit: cover;
+  }
+}
+@media screen and (min-width: 550px) {
+  .logo {
+    width: 45%;
+    margin-bottom: 10%;
+    object-fit: cover;
+  }
+}
+@media screen and (min-width: 600px) {
+  .logo {
+    margin-left: 30%;
+    width: 40%;
+    object-fit: cover;
+  }
+}
+@media screen and (min-width: 650px) {
+  .logo {
+    margin-top: 1%;
+  }
+}
+@media screen and (min-width: 700px) {
+  .logo {
+    margin-left: 33%;
+    width: 33%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .logo {
+    margin-left: 35%;
+    width: 27%;
+    object-fit: cover;
+  }
+}
+@media screen and (min-width: 900px) {
+  .logo {
+    margin-left: 36%;
+    width: 25%;
+    object-fit: cover;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .logo {
+    margin-left: 40%;
+    width: 20%;
+    object-fit: cover;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .logo {
+    margin-left: 42%;
+    width: 15%;
+    object-fit: cover;
+  }
+}
 #page_acceuil {
   background-color: #f3e9f1;
   padding-bottom: 10px;
