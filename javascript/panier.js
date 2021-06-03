@@ -5,7 +5,7 @@ let products = JSON.parse(localStorage.getItem("product"));
 
 // If panier vide alors afficher rien
 if(products === null || products == 0){
-    const empty_basket = `<p>Vous n'avez pas d'article dans le panier</p>`;
+    const empty_basket = `<p class="panier_vide">Vous n'avez pas d'article dans le panier</p>`;
     page_basket.innerHTML = empty_basket;
 }
 // If panier avec produit alors afficher les produit du localstorage
