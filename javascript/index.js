@@ -2,20 +2,19 @@
 const get_api = fetch("http://localhost:3000/api/teddies");
 
 // fonction qui va récupéré les infos de l'api et les afficher
-get_api
-    .then(async (responseData) => {
+get_api.then(async (responseData) => {
 
         const value = await responseData.json();
-
+        
         try {
-        // boucle qui va récupéré les infos de l'api
+            // boucle qui va récupéré les infos de l'api
             for (let i = 0; i < value.length; i++) {
                 const teddies_name = value[i].name
                 const teddies_img = value[i].imageUrl
                 const teddies_id = value[i]._id
                 const teddies_description = value[i].description
                 
-        // affichage des infos dans le html
+                // affichage des infos dans le html
                 const display_teddies = document.querySelector("#page_acceuil");
                 display_teddies.innerHTML += `<a href="./produit.html?id=${teddies_id}">
                                                 <div class="carte_teddies">
@@ -28,9 +27,7 @@ get_api
             }
         }
         catch (err) {
-            console.log(err);
         }
     })
     .catch((err) => {
-        console.log(err);
 });

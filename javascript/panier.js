@@ -58,7 +58,7 @@ for (let item = 0; item < btn_suppr.length; item++) {
 //Récuperation du btn envoyer formulaire
 const submit_form = document.querySelector("#envoyer_formulaire");
 
-//Ecoute de l'event click
+//Ecoute de l'event click du formulaire
 submit_form.addEventListener("click", (event)=>{
     event.preventDefault();
 
@@ -145,6 +145,7 @@ submit_form.addEventListener("click", (event)=>{
             products,
         };
 
+        // Fonction fetch post pour envoyer les données à l'api
         fetch("http://localhost:3000/api/teddies/order", {
         method: "POST",
         body: JSON.stringify(submit_command),
