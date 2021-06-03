@@ -9,6 +9,14 @@
     padding: 2%;
     background-color: #f3e9f1;
 }
+.panier {
+    background-color: #f3e9f1;
+    padding-top: 3px;
+    height: 38px;
+    margin-bottom: 10%;
+    margin-top: 7%;
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.377), -0.4em 0 0.4em rgba(0, 0, 0, 0.377);
+}
 .confirmation_commande {
     padding-top: 3%;
     padding-bottom: 2%;
@@ -39,9 +47,17 @@
     .confirmation_commande {
        padding-top: 1%;
     }
+    .panier {
+        height: 48px;
+    }
 }
 // Fin resposonsive mobile first
 // Début responsive tablette
+@media screen and (min-width:800px) {
+    .panier {
+        height: 55px;
+    }
+}
 @media screen and (min-width: 900px) {
     .recap_commande {
         margin-bottom: 4%;
@@ -59,6 +75,12 @@
         width: 40%;
         margin-left: 28%;
         border-radius: 30px;
+    }
+    .panier {
+        width: 35%;
+        margin-left: 32%;
+        border-radius: 20px;
+        height: 40px;
     }
 }
 @media screen and (min-width: 1000px) {
@@ -93,6 +115,10 @@
         width: 60%;
         padding: 1.50%;
         margin-left: 18%;
+    }
+    .panier {
+        width: 25%;
+        margin-left: 37%;
     }
 }
 // Fin responsive desktop

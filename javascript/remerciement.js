@@ -19,8 +19,8 @@ const price_total = price_calculate.reduce(reducer, 0);
 // Affichage du prix total
 const page_thanks = document.querySelector("#page_remerciement");
 if (price_total === null || price_total === 0) {
-    const empty_thanks = `<p>Remplissez d'abord votre panier :)</p>`
-    page_thanks.innerHTML = empty_thanks;
+    const empty_thanks = `<h2 class="panier"><p>Remplissez d'abord votre panier :)</p></h2>`
+    page_thanks.innerHTML += empty_thanks;
 } else {
     const full_thanks = `<h2 class="recap_commande">Récapitulatif de votre commande</h2>
     <div class="confirmation_commande">
@@ -36,10 +36,10 @@ if (price_total === null || price_total === 0) {
 
 
 // Supprimer localStorage sauf formulaire
-// function suppression_key_localStorage(key) {
-//     localStorage.removeItem(key);
-// };
-// suppression_key_localStorage("orderId");
-// suppression_key_localStorage("product");
-// suppression_key_localStorage("valuesForm");
-// suppression_key_localStorage("Confirmation_Commande");
+function suppression_key_localStorage(key) {
+    localStorage.removeItem(key);
+};
+suppression_key_localStorage("orderId");
+suppression_key_localStorage("product");
+suppression_key_localStorage("valuesForm");
+suppression_key_localStorage("Confirmation_Commande");

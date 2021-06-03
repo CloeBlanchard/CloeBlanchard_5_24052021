@@ -23,10 +23,10 @@ get_object
             }
 
             // Affichage du produit sur le site
-            page_product.innerHTML =`<div class="presentation_teddies">
+            page_product.innerHTML =`<h2 class="nom_produit">${product.name}</h2>
+                                    <div class="presentation_teddies">
                                         <img class="img_produit" src="${product.imageUrl}" alt="ourson en peluche">
                                         <ul>
-                                            <li><p class="nom_produit">${product.name}</p></li>
                                             <li><p class="description_produit">Description : ${product.description}</p></li>
                                             <li><p class="prix_produit">${product.price / 100}€</p></li>
                                         </ul>
