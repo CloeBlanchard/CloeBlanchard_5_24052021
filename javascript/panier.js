@@ -172,8 +172,8 @@ submit_form.addEventListener("click", (event)=>{
             } catch(e){
             };
             
-            // Récupération de l'id de la réponse de la requete
         }).catch((erreur) => {
+            console.log(erreur);
         })
 
         
