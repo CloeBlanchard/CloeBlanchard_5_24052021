@@ -170,6 +170,7 @@ submit_form.addEventListener("click", (event)=>{
                 }
 
             } catch(e){
+                console.log(e);
             };
             
         }).catch((erreur) => {

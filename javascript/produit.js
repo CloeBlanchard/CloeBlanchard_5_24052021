@@ -85,7 +85,9 @@ get_object
                     })
         }
         catch (err) {
+            console.log(err);
         }
     })
     .catch((err) => {
+        console.log(err);
 });

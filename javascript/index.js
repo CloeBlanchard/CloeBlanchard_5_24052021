@@ -27,7 +27,9 @@ get_api.then(async (responseData) => {
             }
         }
         catch (err) {
+            console.log(err);
         }
     })
     .catch((err) => {
+        console.log(err);
 });
