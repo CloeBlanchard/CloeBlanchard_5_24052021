@@ -170,8 +170,11 @@ a {
 // Fin responsive tablette
 // Début responsive desktop
 @media screen and (min-width: 1201px) {
+    #page_acceuil {
+        margin: 2%;
+    }
     .carte_teddies {
-        margin-left: 60px;
+        margin-left: 55px;
         height: 527px;
     }
     .img_teddies{

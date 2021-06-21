@@ -133,7 +133,7 @@ submit_form.addEventListener("click", (event)=>{
         localStorage.setItem("valuesForm", JSON.stringify(contact));
         
         //Mettre en objet les données du panier et du formulaire et l'envoyer dans le local storage
-        //Faire un boucle for
+        //Faire un boucle foreach
         let products = [];
         let product = JSON.parse(localStorage.getItem("product"));
         product.forEach( element => {
